@@ -8,6 +8,7 @@
 #define LIBTGVOIP_AUDIOOUTPUTWAVE_H
 
 #include <windows.h>
+#include <mmeapi.h>
 #include <string>
 #include <vector>
 #include "../../audio/AudioOutput.h"
