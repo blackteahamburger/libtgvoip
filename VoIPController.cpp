@@ -662,9 +662,6 @@ string VoIPController::GetDebugLog(){
 	if(wasNetworkHandover)
 		problems.push_back("network_handover");
 
-	ostringstream prefRelay;
-	prefRelay << preferredRelay;
-
 	return json11::Json(json11::Json::object{
 			{"log_type", "call_stats"},
 			{"libtgvoip_version", LIBTGVOIP_VERSION},
@@ -682,7 +679,7 @@ string VoIPController::GetDebugLog(){
 					{"lost_in", (int)recvLossCount}
 			}},
 			{"problems", problems},
-			{"pref_relay", prefRelay.str()}
+			{"pref_relay", std::to_string(preferredRelay)}
 	}).dump();
 }
 
