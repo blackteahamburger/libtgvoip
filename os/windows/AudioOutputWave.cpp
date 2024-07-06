@@ -79,7 +79,7 @@ void AudioOutputWave::OnBufferDone(WAVEHDR* hdr){
 
 	InvokeCallback((unsigned char*)hdr->lpData, hdr->dwBufferLength);
 	hdr->dwFlags&= ~WHDR_DONE;
-	MMRESULT res=waveOutWrite(hWaveOut, hdr, sizeof(WAVEHDR));
+	waveOutWrite(hWaveOut, hdr, sizeof(WAVEHDR));
 }
 
 void AudioOutputWave::EnumerateDevices(std::vector<tgvoip::AudioOutputDevice>& devs){

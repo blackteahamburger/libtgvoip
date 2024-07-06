@@ -61,7 +61,7 @@ void NetworkSocketWinsock::Send(NetworkPacket *packet){
 		LOGW("tried to send null packet");
 		return;
 	}
-	int res;
+	int res = 0;
 	if(protocol==PROTO_UDP){
 		IPv4Address *v4addr=dynamic_cast<IPv4Address *>(packet->address);
 		if(isAtLeastVista){
